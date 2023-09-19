@@ -1,0 +1,25 @@
+version: '3'
+services:
+  development:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development # Specify the build target for development
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app # Mount your Next.js app source code into the container
+    environment:
+      - NODE_ENV=development # Set the Node.js environment to development
+  production:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: serve-production # Specify the build target for production
+    ports:
+      - "80:80"
+    environment:
+      - NODE_ENV=production # Set the Node.js environment to production
+networks:
+  external:
+    driver: bridge
