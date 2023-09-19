@@ -1,17 +1,13 @@
 version: '3'
 services:
   development:
-    build:
-      image: prakashjoshi/rkmasohra:latest
-      target: development # Specify the build target for development
+    image: prakashjoshi/rkmasohra:latest
     ports:
       - "3000:3000"
     environment:
       - NODE_ENV=development # Set the Node.js environment to development
   production:
-    build:
-      image: prakashjoshi/rkmasohra:latest
-      target: serve-production # Specify the build target for production
+    image: prakashjoshi/rkmasohra:latest
     ports:
       - "80:80"
     environment:
